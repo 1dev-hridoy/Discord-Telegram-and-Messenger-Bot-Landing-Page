@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiscordBot - Your Ultimate Discord Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7289DA',
+                        secondary: '#99AAB5',
+                        discord: '#5865F2',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="font-sans bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <header class="fixed w-full z-50 bg-white dark:bg-gray-800 shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">DiscordBot</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#features" class="hover:text-primary transition-colors duration-300">Features</a>
+                    <a href="#how-it-works" class="hover:text-primary transition-colors duration-300">How It Works</a>
+                    <a href="#pricing" class="hover:text-primary transition-colors duration-300">Pricing</a>
+                    <a href="#faq" class="hover:text-primary transition-colors duration-300">FAQ</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-500 hidden dark:inline"></i>
+                    </button>
+                    <a href="#" class="hidden md:inline-block btn-primary text-white px-4 py-2 rounded-full">Invite Bot</a>
+                    <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                        <div class="hamburger">
+                            <span class="hamburger-top"></span>
+                            <span class="hamburger-middle"></span>
+                            <span class="hamburger-bottom"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 fixed top-16 left-0 w-full h-full z-40">
+            <div class="flex flex-col items-center py-8 space-y-6">
+                <a href="#features" class="text-lg hover:text-primary transition-colors duration-300">Features</a>
+                <a href="#how-it-works" class="text-lg hover:text-primary transition-colors duration-300">How It Works</a>
+                <a href="#pricing" class="text-lg hover:text-primary transition-colors duration-300">Pricing</a>
+                <a href="#faq" class="text-lg hover:text-primary transition-colors duration-300">FAQ</a>
+                <a href="#" class="btn-primary text-white px-6 py-2 rounded-full text-lg">Invite Bot</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="pt-24 pb-12 md:pt-32 md:pb-24">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Your Ultimate Discord Companion</h1>
+                        <p class="text-xl mb-6">Enhance your server with powerful moderation, fun games, and seamless integrations.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="btn-primary text-white px-6 py-3 rounded-full">
+                                <i class="fab fa-discord mr-2"></i>Invite Bot
+                            </a>
+                            <a href="#" class="bg-secondary text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition duration-300">
+                                <i class="fas fa-headset mr-2"></i>Support Server
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 floating" data-aos="fade-left">
+                        <img src="./assets/images/hero/rb_2151106536.png" alt="DiscordBot Demo" class="rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-12 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Powerful Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glassmorphism p-6" data-aos="fade-up">
+                        <i class="fas fa-shield-alt text-4xl text-primary mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Advanced Moderation</h3>
+                        <p>Keep your server safe with powerful moderation tools and auto-moderation features.</p>
+                    </div>
+                    <div class="glassmorphism p-6" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-gamepad text-4xl text-primary mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Fun Mini-Games</h3>
+                        <p>Engage your community with a variety of interactive mini-games and challenges.</p>
+                    </div>
+                    <div class="glassmorphism p-6" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-chart-line text-4xl text-primary mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Server Analytics</h3>
+                        <p>Get detailed insights into your server's activity and member engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">How It Works</h2>
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="md:w-1/4 mb-8 md:mb-0 text-center" data-aos="fade-up">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 pulse">
+                            <i class="fas fa-plus text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">1. Invite the Bot</h3>
+                        <p>Add DiscordBot to your server with just a few clicks.</p>
+                    </div>
+                    <div class="md:w-1/4 mb-8 md:mb-0 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 pulse">
+                            <i class="fas fa-cog text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">2. Configure Settings</h3>
+                        <p>Customize the bot's behavior to fit your server's needs.</p>
+                    </div>
+                    <div class="md:w-1/4 mb-8 md:mb-0 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 pulse">
+                            <i class="fas fa-magic text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">3. Enjoy the Magic</h3>
+                        <p>Watch as DiscordBot enhances your server experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-12 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">What Our Users Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glassmorphism p-6" data-aos="fade-up">
+                        <div class="flex items-center mb-4">
+                            <img src="./assets/images/testimonials/man.png" alt="User Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold">John Doe</h4>
+                                <div class="text-yellow-500">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>"DiscordBot has completely transformed our server. The moderation tools are a game-changer!"</p>
+                    </div>
+                    <div class="glassmorphism p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <img src="./assets/images/testimonials/worker.png" alt="User Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold">Jane Smith</h4>
+                                <div class="text-yellow-500">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>"The mini-games keep our community engaged and active. It's been a great addition to our server!"</p>
+                    </div>
+                    <div class="glassmorphism p-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <img src="./assets/images/testimonials/young-man.png" alt="User Avatar" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold">Mike Johnson</h4>
+                                <div class="text-yellow-500">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>"The analytics feature provides valuable insights. It's helped us grow our community significantly."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Choose Your Plan</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glassmorphism p-6 flex flex-col" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold mb-4">Basic</h3>
+                        <p class="text-4xl font-bold mb-6">Free</p>
+                        <ul class="mb-8 flex-grow">
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Basic moderation tools</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>5 mini-games</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Limited analytics</li>
+                        </ul>
+                        <a href="#" class="btn-primary text-white px-6 py-3 rounded-full text-center">Get Started</a>
+                    </div>
+                    <div class="glassmorphism p-6 flex flex-col border-4 border-primary" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold mb-4">Pro</h3>
+                        <p class="text-4xl font-bold mb-6">$9.99/mo</p>
+                        <ul class="mb-8 flex-grow">
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Advanced moderation tools</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>20 mini-games</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Full analytics suite</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Priority support</li>
+                        </ul>
+                        <a href="#" class="btn-primary text-white px-6 py-3 rounded-full text-center">Upgrade to Pro</a>
+                    </div>
+                    <div class="glassmorphism p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                        <p class="text-4xl font-bold mb-6">Custom</p>
+                        <ul class="mb-8 flex-grow">
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Custom moderation tools</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Unlimited mini-games</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Advanced analytics and reporting</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>24/7 dedicated support</li>
+                            <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Custom integrations</li>
+                        </ul>
+                        <a href="#" class="btn-primary text-white px-6 py-3 rounded-full text-center">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Section -->
+        <section id="commands" class="py-12 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Bot Commands</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="mb-4">
+                        <input type="text" id="command-search" placeholder="Search commands..." class="w-full px-4 py-2 rounded-full border focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div id="commands-list">
+                        <div class="glassmorphism p-4 mb-4" data-aos="fade-up">
+                            <h3 class="font-semibold mb-2">!help</h3>
+                            <p>Displays a list of available commands and their descriptions.</p>
+                        </div>
+                        <div class="glassmorphism p-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="font-semibold mb-2">!ban @user</h3>
+                            <p>Bans the mentioned user from the server.</p>
+                        </div>
+                        <div class="glassmorphism p-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="font-semibold mb-2">!play [game]</h3>
+                            <p>Starts a mini-game in the current channel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">DiscordBot in Numbers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center" data-aos="fade-up">
+                        <p class="text-4xl font-bold text-primary mb-2" id="servers-count">0</p>
+                        <p class="text-xl">Servers</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <p class="text-4xl font-bold text-primary mb-2" id="users-count">0</p>
+                        <p class="text-xl">Users</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <p class="text-4xl font-bold text-primary mb-2" id="commands-count">0</p>
+                        <p class="text-xl">Commands Processed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations Section -->
+        <section id="integrations" class="py-12 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Integrations</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center" data-aos="fade-up">
+                        <img src="./assets/images/Integrations/spotify.png" alt="Spotify" class="w-20 h-20 mx-auto mb-4">
+                        <p class="font-semibold">Spotify</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <img src="./assets/images/Integrations/youtube.png" alt="YouTube" class="w-20 h-20 mx-auto mb-4">
+                        <p class="font-semibold">YouTube</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="./assets/images/Integrations/twitch.png" alt="Twitch" class="w-20 h-20 mx-auto mb-4">
+                        <p class="font-semibold">Twitch</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <img src="./assets/images/Integrations/reddit.png" alt="Reddit" class="w-20 h-20 mx-auto mb-4">
+                        <p class="font-semibold">Reddit</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 gradient-text">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto" id="faq-accordion">
+                    <div class="glassmorphism mb-4" data-aos="fade-up">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-semibold focus:outline-none">
+                            <span>How do I add DiscordBot to my server?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="p-4 hidden">
+                            <p>To add DiscordBot to your server, simply click on the "Invite Bot" button at the top of this page and follow the prompts to authorize the bot for your server.</p>
+                        </div>
+                    </div>
+                    <div class="glassmorphism mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-semibold focus:outline-none">
+                            <span>Is DiscordBot free to use?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="p-4 hidden">
+                            <p>Yes, DiscordBot offers a free tier with basic features. We also offer paid plans with advanced features and support for those who need more from their bot.</p>
+                        </div>
+                    </div>
+                    <div class="glassmorphism mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <button class="flex justify-between items-center w-full p-4 text-left font-semibold focus:outline-none">
+                            <span>How can I get support for DiscordBot?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="p-4 hidden">
+                            <p>For support, you can join our official Discord server by clicking the "Support Server" button at the top of this page. Our team and community are always ready to help!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="py-12 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-8 gradient-text">Stay Updated</h2>
+                <p class="text-center mb-8">Subscribe to our newsletter for the latest updates and features.</p>
+                <form id="newsletter-form" class="max-w-md mx-auto">
+                    <div class="flex">
+                        <input type="email" id="email" placeholder="Enter your email" class="flex-grow px-4 py-2 rounded-l-full focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="btn-primary text-white px-6 py-2 rounded-r-full">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">DiscordBot</h3>
+                    <p>Enhancing your Discord experience, one server at a time.</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul>
+                        <li><a href="#features" class="hover:text-primary transition-colors duration-300">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-primary transition-colors duration-300">Pricing</a></li>
+                        <li><a href="#faq" class="hover:text-primary transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <ul>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300"><i class="fab fa-discord mr-2"></i>Discord</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300"><i class="fab fa-twitter mr-2"></i>Twitter</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300"><i class="fab fa-github mr-2"></i>GitHub</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300"><i class="fas fa-envelope mr-2"></i>Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h4 class="text-lg font-semibold mb-4">Language</h4>
+                    <select class="bg-gray-700 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>Français</option>
+                        <option>Deutsch</option>
+                    </select>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2023 DiscordBot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
